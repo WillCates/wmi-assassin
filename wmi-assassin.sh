@@ -21,7 +21,7 @@ check()
 {
 for HOST in $(cat $HOST_LIST)
 do
-${PYTHON_PATH}/python ${WMIEXE_PATH}/wmiexec.py ${USER}:${PASSWORD}@$HOST cmd.exe /c "wmic /NAMESPACE:\\\\root\\subscription PATH __FilterToConsumerBinding where Consumer='CommandLineEventConsumer.Name=\"DSM Event Log Consumer\"'" 
+	${PYTHON_PATH}/python ${WMIEXE_PATH}/wmiexec.py ${USER}:${PASSWORD}@$HOST cmd.exe /c "wmic /NAMESPACE:\\\\root\\subscription PATH __FilterToConsumerBinding where Consumer='CommandLineEventConsumer.Name=\"DSM Event Log Consumer\"'" 
 	${PYTHON_PATH}/python ${WMIEXE_PATH}/wmiexec.py ${USER}:${PASSWORD}@$HOST cmd.exe /c "wmic /NAMESPACE:\\\\root\\subscription PATH __EventFilter where name=\"DSM Event Log Filter\""
 	${PYTHON_PATH}/python ${WMIEXE_PATH}/wmiexec.py ${USER}:${PASSWORD}@$HOST cmd.exe /c "wmic /NAMESPACE:\\\\root\\subscription PATH CommandLineEventConsumer where Name='DSM Event Log Consumer'"
 	${PYTHON_PATH}/python ${WMIEXE_PATH}/wmiexec.py ${USER}:${PASSWORD}@$HOST cmd.exe /c "wmic /NAMESPACE:\\\\root\default CLASS Win32_Services"
@@ -57,7 +57,7 @@ echo
 echo
 for HOST in $(cat $HOST_LIST)
 do
-	      ${PYTHON_PATH}/python ${WMIEXE_PATH}/wmiexec.py ${USER}:${PASSWORD}@$HOST cmd.exe /c "wmic /NAMESPACE:\\\\root\\subscription PATH __FilterToConsumerBinding"
+	${PYTHON_PATH}/python ${WMIEXE_PATH}/wmiexec.py ${USER}:${PASSWORD}@$HOST cmd.exe /c "wmic /NAMESPACE:\\\\root\\subscription PATH __FilterToConsumerBinding"
         ${PYTHON_PATH}/python ${WMIEXE_PATH}/wmiexec.py ${USER}:${PASSWORD}@$HOST cmd.exe /c "wmic /NAMESPACE:\\\\root\\subscription PATH __EventFilter"
         ${PYTHON_PATH}/python ${WMIEXE_PATH}/wmiexec.py ${USER}:${PASSWORD}@$HOST cmd.exe /c "wmic /NAMESPACE:\\\\root\\subscription PATH CommandLineEventConsumer"
 done                                                                                                                                 
